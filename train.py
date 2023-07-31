@@ -586,7 +586,8 @@ if __name__ == "__main__":
     if FLAGS.out_dir is None:
         FLAGS.out_dir = 'out/cube_%d' % (FLAGS.train_res)
     else:
-        FLAGS.out_dir = 'out/' + FLAGS.out_dir
+        if not FLAGS.out_dir.startswith("/"):
+            FLAGS.out_dir = 'out/' + FLAGS.out_dir
 
     if FLAGS.local_rank == 0:
         print("Config / Flags:")
