@@ -10,6 +10,16 @@
   <img width="40%" src="assets/head_figure.jpg"/>
 </p>
 
+# Update log
+**Please pull the latest code to improve performance!!**
+- (2023.08.06)
+  - Add a tip to improve the realism of appearance.
+- (2023.08.05)
+  - Fix the bug about the same seed between different gpus, which may not accelerate convergence. 
+  - Add a part for directly performing UV padding in the code, so there is no need for additional operations in the blender.
+- (2023.07.26)
+  - Fix the bug about using the tangent space normal. 
+
 # FAQs
 
 ***Q1***: *About the use of normal and mask images as the input of stable diffusion model and analysis*
@@ -195,6 +205,8 @@ python3  train.py --config configs/Gundam_appearance.json
 
 - ***(appearance modeling) Use different HDR environment maps.*** Learning the PBR materials is an ill-posed problem. If materials and lighting are learned together, it will increase the difficulty of learning. So We use the fixed HDR light to optimize the appearance. We noticed that HDR maps with uniform brightness distribution, such as cloudy days, are conducive to the uniformity of appearance colors. Some uneven brightness distribution may produce more realistic results (untested).
 
+- ***(appearance modeling) Use some additional prompts.*** Using some additional prompts, such as "a DSLR photo of {your text}, black background" can improve the realism of appearance.
+
 # Coordinate System
 
 <img width="30%" src="assets/coordinate_system.jpg"/>
@@ -203,6 +215,11 @@ python3  train.py --config configs/Gundam_appearance.json
 
 You can download and watch some demos' training process in [Google drive](https://drive.google.com/drive/folders/1cEjXOF_uUSRVRZHE2RDt15CnY9yovEYs?usp=sharing)
 For more demos see [here](https://github.com/Gorilla-Lab-SCUT/Fantasia3D/issues/19)
+
+https://user-images.githubusercontent.com/128572637/e3e8bb82-6be0-42d0-9da3-1e59664354dd
+
+https://user-images.githubusercontent.com/128572637/856c12bf-f100-47fc-a22c-80f123bd0a6d
+
 https://user-images.githubusercontent.com/128572637/5872edbf-f87f-4dfe-9f71-f3941b84b8d7
 
 https://user-images.githubusercontent.com/128572637/17ce275c-26bc-482e-ab61-a61f442de458
